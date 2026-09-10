@@ -1,0 +1,1081 @@
+/* BDS Design System — AGM app chrome mapped to semantic tokens
+   Source: Design System 15 Apr v1 (Manoj) + Syncfusion Tailwind 3 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import './bds-primitive.css';
+@import './bds-semantic-light.css';
+@import './bds-semantic-dark.css';
+
+:root,
+html[data-theme='bds-light'] {
+  --agm-font: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --agm-display: Inter, system-ui, sans-serif;
+  --agm-ink: var(--color-sf-fg-primary);
+  --agm-ink-soft: var(--color-sf-fg-tertiary);
+  --agm-surface: var(--color-sf-bg-secondary);
+  --agm-surface-elevated: var(--color-sf-bg-primary);
+  --agm-border: var(--color-sf-border-secondary);
+  --agm-brand: var(--color-sf-brand-600);
+  --agm-brand-deep: var(--color-sf-brand-700);
+  --agm-brand-soft: var(--color-sf-bg-brand-primary);
+  --agm-accent: var(--color-sf-brand-500);
+  --agm-healthy: var(--color-sf-fg-success-primary);
+  --agm-warning: var(--color-sf-fg-warning-primary);
+  --agm-critical: var(--color-sf-fg-error-primary);
+  --agm-info: var(--color-sf-utility-info);
+  --agm-sidebar: var(--color-sf-bg-primary);
+  --agm-sidebar-text: var(--color-sf-fg-secondary);
+  --agm-sidebar-muted: var(--color-sf-fg-quaternary);
+  --agm-on-brand: var(--color-sf-fg-brand-primary);
+  --agm-shadow: var(--shadow-sm);
+  --agm-radius: var(--radius-12);
+  --agm-chart-grid: var(--color-sf-border-secondary);
+  color-scheme: light;
+}
+
+html[data-theme='bds-dark'] {
+  --color-sf-white: #fff;
+  --color-sf-black: #000;
+  --agm-ink: var(--color-sf-fg-primary);
+  --agm-ink-soft: var(--color-sf-fg-tertiary);
+  --agm-surface: var(--color-sf-bg-secondary);
+  --agm-surface-elevated: var(--color-sf-bg-primary-alt);
+  --agm-border: var(--color-sf-border-secondary);
+  --agm-brand: var(--color-sf-brand-500);
+  --agm-brand-deep: var(--color-sf-brand-400);
+  --agm-brand-soft: var(--color-sf-brand-950);
+  --agm-sidebar: var(--color-sf-bg-primary-alt);
+  --agm-sidebar-text: var(--color-sf-fg-secondary);
+  --agm-sidebar-muted: var(--color-sf-fg-quaternary);
+  --agm-on-brand: var(--color-sf-white);
+  --agm-shadow: var(--shadow-md);
+  --agm-chart-grid: var(--color-sf-border-primary);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--agm-font);
+  color: var(--agm-ink);
+  background: var(--agm-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.agm-app {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+  background: var(--agm-surface);
+}
+
+.agm-sidebar {
+  background: var(--agm-sidebar);
+  color: var(--agm-sidebar-text);
+  border-right: 1px solid var(--agm-border);
+  padding: var(--spacing-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.agm-brand {
+  padding: var(--spacing-8);
+  border-bottom: 1px solid var(--agm-border);
+}
+
+.agm-brand__mark {
+  font-family: var(--agm-display);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.01em;
+  color: var(--agm-ink);
+  line-height: 1.25;
+}
+
+.agm-brand__sub {
+  margin-top: var(--spacing-4);
+  font-size: var(--font-size-xs);
+  color: var(--agm-sidebar-muted);
+  line-height: 1.35;
+}
+
+.agm-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1;
+}
+
+.agm-nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-10);
+  padding: 9px 12px;
+  border-radius: var(--radius-8);
+  color: var(--color-sf-fg-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.agm-nav__link:hover {
+  background: var(--color-sf-bg-secondary-hover);
+  color: var(--color-sf-fg-brand-primary);
+}
+
+.agm-nav__link.is-active {
+  background: var(--color-sf-bg-brand-primary);
+  color: var(--agm-on-brand);
+  font-weight: var(--font-weight-semibold);
+}
+
+.agm-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--agm-surface);
+}
+
+.agm-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  padding: var(--spacing-12) var(--spacing-20);
+  background: var(--color-sf-bg-primary);
+  border-bottom: 1px solid var(--agm-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.agm-topbar__title {
+  font-family: var(--agm-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--agm-ink);
+}
+
+.agm-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.agm-content {
+  padding: var(--spacing-20) var(--spacing-20) var(--spacing-40);
+}
+
+.agm-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-20);
+  flex-wrap: wrap;
+}
+
+.agm-page-header h1 {
+  margin: 0;
+  font-family: var(--agm-display);
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--agm-ink);
+  line-height: 1.2;
+}
+
+.agm-page-header p {
+  margin: 6px 0 0;
+  color: var(--agm-ink-soft);
+  max-width: 52rem;
+  line-height: 1.45;
+  font-size: var(--font-size-sm);
+}
+
+.agm-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+  align-items: end;
+  padding: var(--spacing-16);
+  background: var(--agm-surface-elevated);
+  border: 1px solid var(--agm-border);
+  border-radius: var(--agm-radius);
+  box-shadow: var(--agm-shadow);
+  margin-bottom: var(--spacing-16);
+}
+
+.agm-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 160px;
+}
+
+.agm-filter-field label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--agm-ink-soft);
+}
+
+.agm-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-16);
+}
+
+.agm-kpi {
+  background: var(--color-sf-bg-secondary);
+  border: 1px solid var(--agm-border);
+  border-radius: var(--radius-12);
+  padding: 10px 12px;
+  box-shadow: none;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+  overflow: visible;
+}
+
+.agm-kpi:hover {
+  background: var(--color-sf-bg-secondary);
+  border-color: var(--agm-border);
+  box-shadow: none;
+}
+
+.agm-kpi.is-clickable {
+  cursor: pointer;
+}
+
+.agm-kpi__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--agm-ink-soft);
+}
+
+.agm-kpi__value {
+  margin: 0;
+  font-family: var(--agm-display);
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--agm-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agm-kpi__meta {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-size: var(--font-size-xs);
+  min-height: 24px;
+}
+
+.agm-kpi__meta .e-sparkline,
+.agm-kpi__meta .e-sparkline-container,
+.agm-kpi__meta svg {
+  height: 24px;
+  max-height: 24px;
+  flex-shrink: 0;
+}
+
+.agm-kpi__delta.up {
+  color: var(--agm-healthy);
+}
+
+.agm-kpi__delta.down {
+  color: var(--agm-critical);
+}
+
+/* Syncfusion Card integration — flatten inner spacing so the e-card */
+ /* structure preserves the original flat appearance of the KPI tile. */
+.e-card.agm-kpi .e-card-header,
+.e-card.agm-kpi .e-card-content,
+.e-card.agm-kpi .e-card-actions,
+.e-card.agm-kpi .e-card-header-caption {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  display: block;
+}
+
+.e-card.agm-kpi .e-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.e-card.agm-kpi .e-card-actions {
+  border-top: 0;
+}
+
+.agm-panel {
+  background: var(--agm-surface-elevated);
+  border: 1px solid var(--agm-border);
+  border-radius: var(--radius-14);
+  box-shadow: var(--agm-shadow);
+  padding: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.agm-panel__title {
+  margin: 0 0 12px;
+  font-family: var(--agm-display);
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: var(--font-weight-semibold);
+  color: var(--agm-ink);
+}
+
+.agm-grid-2 {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr;
+  gap: var(--spacing-16);
+}
+
+.agm-capacity-sections {
+  grid-template-columns: 1fr;
+}
+
+.agm-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-16);
+}
+
+.agm-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 74px;
+  gap: 0;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-sf-border-primary);
+  background: var(--color-sf-bg-tertiary);
+  color: var(--color-sf-fg-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.agm-status::before {
+  display: none;
+}
+
+.agm-status.healthy,
+.agm-status.low {
+  background: var(--color-sf-bg-success-primary);
+  border-color: var(--color-sf-border-success);
+  color: var(--color-sf-fg-success-primary);
+}
+
+.agm-status.warning,
+.agm-status.moderate,
+.agm-status.high {
+  background: var(--color-sf-bg-warning-primary);
+  border-color: var(--color-sf-border-warning);
+  color: var(--color-sf-fg-warning-primary);
+}
+
+.agm-status.critical {
+  background: var(--color-sf-bg-error-primary);
+  border-color: var(--color-sf-border-error);
+  color: var(--color-sf-fg-error-primary);
+}
+
+html[data-theme='bds-dark'] .agm-status.healthy,
+html[data-theme='bds-dark'] .agm-status.low {
+  background: var(--color-sf-bg-success-primary);
+  border-color: var(--color-sf-border-success);
+  color: var(--color-sf-on-brand-solid-primary, var(--color-sf-base-white));
+}
+
+html[data-theme='bds-dark'] .agm-status.warning,
+html[data-theme='bds-dark'] .agm-status.moderate,
+html[data-theme='bds-dark'] .agm-status.high {
+  background: var(--color-sf-bg-warning-primary);
+  border-color: var(--color-sf-border-warning);
+  color: var(--color-sf-on-brand-solid-primary, var(--color-sf-base-white));
+}
+
+html[data-theme='bds-dark'] .agm-status.critical {
+  background: var(--color-sf-bg-error-primary);
+  border-color: var(--color-sf-border-error);
+  color: var(--color-sf-on-brand-solid-primary, var(--color-sf-base-white));
+}
+
+.agm-muted {
+  color: var(--agm-ink-soft);
+}
+
+/* ── Warehouse scheduler (WarehousesPage) ─────────────────────────────── */
+.agm-scheduler {
+  --agm-event-radius: 6px;
+  --agm-status-scheduled: #5B6B8C;
+  --agm-status-in-progress: #2F80ED;
+  --agm-status-delayed: #E08A1E;
+  --agm-status-completed: #439A55;
+  --agm-status-cancelled: #B42318;
+}
+
+.agm-scheduler .e-schedule {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-sf-border-primary);
+  background: var(--color-sf-bg-surface-primary);
+}
+
+.agm-scheduler .e-schedule .e-views .e-active-view,
+.agm-scheduler .e-schedule .e-header-cells,
+.agm-scheduler .e-schedule .e-date-header-wrap .e-header-cells {
+  background-color: var(--color-sf-bg-tertiary);
+}
+
+.agm-scheduler .e-event-appointment {
+  border-radius: var(--agm-event-radius);
+}
+
+/* Mirrors Syncfusion's `Default Functionalities` appointment card:
+   bold subject up to ~4 lines, time range, location sub-line (truncated). */
+.agm-event {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  padding: 4px 6px;
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: 1.2;
+  text-align: left;
+  overflow: hidden;
+}
+
+.agm-event__subject {
+  font-size: 13px;
+  font-weight: 700;
+  /* Subject wraps onto up to 4 lines like the demo (e.g. "Explosion of
+     Betelgeuse Star" → 4 short words per line in 1.1rem cards). */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-clamp: 4;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.agm-event__time {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agm-event__location {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agm-scheduler .e-editor-extra {
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-sf-border-primary);
+  background: var(--color-sf-bg-tertiary);
+}
+
+.agm-editor-extra,
+.agm-editor-extra .agm-editor-extra__row,
+.agm-editor-extra .agm-editor-extra__label {
+  font: inherit;
+}
+
+.agm-editor-extra {
+  display: grid;
+  gap: 6px;
+}
+
+.agm-editor-extra .agm-editor-extra__row {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  align-items: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-sf-fg-primary);
+}
+
+.agm-editor-extra .agm-editor-extra__label {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-sf-fg-secondary);
+}
+
+.agm-help-text {
+  margin: 0 0 var(--spacing-12, 12px) 0;
+  color: var(--agm-ink-soft);
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: 1.4;
+}
+
+/* Per-status badge tints on the event card */
+.agm-event__status--scheduled { outline: 2px solid var(--agm-status-scheduled); outline-offset: -2px; }
+.agm-event__status--in-progress { outline: 2px solid var(--agm-status-in-progress); outline-offset: -2px; }
+.agm-event__status--delayed { outline: 2px solid var(--agm-status-delayed); outline-offset: -2px; }
+.agm-event__status--completed { outline: 2px solid var(--agm-status-completed); outline-offset: -2px; opacity: 0.85; }
+.agm-event__status--cancelled { outline: 2px solid var(--agm-status-cancelled); outline-offset: -2px; opacity: 0.65; text-decoration: line-through; }
+
+html[data-theme='bds-dark'] .agm-scheduler {
+  --agm-status-scheduled: #8DA1D1;
+  --agm-status-in-progress: #56A2F6;
+  --agm-status-delayed: #F2A65A;
+  --agm-status-completed: #64C77B;
+  --agm-status-cancelled: #F97066;
+}
+
+.agm-empty,
+.agm-error,
+.agm-loading {
+  padding: var(--spacing-32);
+  text-align: center;
+  color: var(--agm-ink-soft);
+}
+
+.agm-showcase-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(380px, 100vw);
+  height: 100vh;
+  background: var(--agm-surface-elevated);
+  border-left: 1px solid var(--agm-border);
+  box-shadow: var(--shadow-xl);
+  z-index: 40;
+  padding: var(--spacing-20);
+  overflow: auto;
+  transform: translateX(100%);
+  transition: transform 0.2s ease;
+}
+
+.agm-showcase-panel.is-open {
+  transform: translateX(0);
+}
+
+.agm-showcase-panel h2 {
+  font-family: var(--agm-display);
+  margin: 0 0 0.35rem;
+  color: var(--agm-ink);
+}
+
+.agm-showcase-panel ul {
+  margin: 0.4rem 0 1rem;
+  padding-left: 1.1rem;
+  color: var(--agm-ink-soft);
+}
+
+.agm-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.agm-code-block {
+  margin: 0;
+  padding: 1rem;
+  background: var(--color-sf-gray-900);
+  color: var(--color-sf-gray-100);
+  border-radius: var(--radius-8);
+  overflow: auto;
+  max-height: 420px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.agm-code-block code {
+  white-space: pre;
+}
+
+/* Syncfusion Tailwind3 grid polish */
+.e-grid {
+  border-radius: var(--radius-8);
+  overflow: hidden;
+}
+
+.e-grid .e-headercell {
+  font-weight: var(--font-weight-semibold);
+}
+
+.e-grid .e-rowcell,
+.e-grid .e-headercell {
+  font-size: var(--font-size-sm);
+}
+
+/* Ellipsis columns (clipMode="EllipsisWithTooltip") need explicit
+   nowrap + overflow:hidden + text-overflow:ellipsis on the cell so
+   the grid actually measures overflow and shows the hover tooltip.
+   Syncfusion relies on these CSS properties — without them the
+   EllipsisWithTooltip directive silently does nothing. */
+.e-grid .e-rowcell.e-ellipsistooltip {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.e-grid .e-rowcell.e-ellipsistooltip:hover {
+  cursor: default;
+}
+
+.e-chart,
+.e-chart text,
+.e-accumulationchart,
+.e-accumulationchart text {
+  font-family: var(--agm-font) !important;
+}
+
+/* Syncfusion charts bake the text `fill` color into the SVG at render time
+   based on the chart's `theme` prop. Because of that, switching from
+   bds-light to bds-dark in CSS alone doesn't repaint existing SVG <text>
+   nodes — the fill is set as an attribute (`fill="#9CA3AF"` etc.) and
+   trumps most CSS rules. We re-assert the correct color via CSS with
+   `!important`, then force a re-render of the chart on theme switch by
+   changing the React `key` (see DashboardPage + other chart panels).
+
+   Color mapping:
+   - Axis labels (X/Y)        → --agm-ink  (primary text)
+   - Axis titles (X/Y)        → --agm-ink-soft (secondary text)
+   - Chart title              → --agm-ink  (primary text)
+   - Legend text              → --agm-ink-soft (secondary text)
+   - Data label (pie/donut)   → --agm-ink  (primary text) */
+.e-chart text,
+.e-accumulationchart text {
+  fill: var(--agm-ink) !important;
+}
+
+.e-chart .e-legend text,
+.e-accumulationchart .e-legend text {
+  fill: var(--agm-ink-soft) !important;
+}
+
+/* Axis titles in ChartComponent render with the secondary color
+   (`--agm-ink-soft`); the axis labels use the primary color. */
+.e-chart [class*='e-axistitle'] text,
+.e-chart .e-axis-title text {
+  fill: var(--agm-ink-soft) !important;
+}
+
+/* Crosshair lines, trackball lines, etc. should pick up the brand color
+   so they stay visible on the panel background in both themes. */
+.e-chart [class*='e-crosshair'] line,
+.e-chart [class*='e-crosshair'] path {
+  stroke: var(--agm-ink-soft) !important;
+}
+
+/* Tooltip body — Syncfusion paints it with its own `--color-sf-content-*`
+   tokens. Override the inline `fill` it sets on the SVG group so the
+   tooltip stays legible after a theme switch. */
+.e-chart [class*='e-tooltip'],
+.e-accumulationchart [class*='e-tooltip'],
+.e-maps [class*='e-tooltip'] {
+  --color-sf-tooltip-bg-color: var(--agm-surface-elevated) !important;
+  --color-sf-tooltip-text-color: var(--agm-ink) !important;
+  --color-sf-tooltip-border-color: var(--agm-border) !important;
+}
+
+.e-tab > .e-content {
+  padding-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .agm-kpi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .agm-grid-2,
+  .agm-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Notifications dialog */
+.agm-notif-dialog .e-dlg-header-content {
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--agm-border);
+  background: var(--agm-surface-elevated);
+}
+
+.agm-notif-dialog .e-dlg-header {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--agm-ink);
+}
+
+.agm-notif-dialog .e-dlg-closeicon-btn {
+  border-radius: 8px;
+  color: var(--agm-ink-soft);
+}
+
+.agm-notif-dialog .e-dlg-content {
+  padding: 0 !important;
+  background: var(--agm-surface-elevated);
+}
+
+.agm-notif__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 20px;
+  background: linear-gradient(105deg, var(--agm-brand-soft), var(--agm-surface-elevated) 72%);
+  border-bottom: 1px solid var(--agm-border);
+}
+
+.agm-notif__eyebrow {
+  margin-bottom: 3px;
+  color: var(--agm-brand-deep);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.agm-notif__summary-title {
+  color: var(--agm-ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.agm-notif__summary-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--agm-warning) 35%, transparent);
+  border-radius: 999px;
+  color: var(--agm-warning);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.agm-notif__summary-status.is-clear {
+  border-color: color-mix(in srgb, var(--agm-healthy) 35%, transparent);
+  color: var(--agm-healthy);
+}
+
+.agm-notif__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.agm-notif__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: min(60vh, 520px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.agm-notif__list .e-list-item {
+  height: auto !important;
+}
+
+.agm-notif__item {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 14px;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--agm-border);
+  background: transparent;
+  outline: none;
+}
+
+.agm-notif__item:last-child {
+  border-bottom: none;
+}
+
+.agm-notif__item:focus-visible {
+  box-shadow: inset 2px 0 0 var(--agm-brand);
+}
+
+.agm-notif__dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 7px;
+  background: var(--agm-ink-soft);
+}
+
+.agm-notif__dot--high,
+.agm-notif__dot--critical {
+  background: var(--agm-critical);
+}
+
+.agm-notif__dot--medium,
+.agm-notif__dot--warning {
+  background: var(--agm-warning);
+}
+
+.agm-notif__dot--low,
+.agm-notif__dot--healthy,
+.agm-notif__dot--info,
+.agm-notif__dot--success {
+  background: var(--agm-healthy);
+}
+
+.agm-notif__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.agm-notif__category {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 5px;
+  color: var(--agm-ink-soft);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.agm-notif__separator {
+  color: var(--agm-border);
+}
+
+.agm-notif__action {
+  color: var(--agm-brand-deep);
+  font-weight: 600;
+}
+
+.agm-notif__action span {
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.agm-notif__aside {
+  min-width: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+
+.agm-notif__title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--agm-ink);
+  word-break: break-word;
+}
+
+.agm-notif__time {
+  margin-left: auto;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.agm-notif__sev {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.agm-notif__sev--high {
+  background: color-mix(in srgb, var(--agm-warning) 16%, transparent);
+  border-color: color-mix(in srgb, var(--agm-warning) 42%, transparent);
+  color: var(--agm-warning);
+}
+
+.agm-notif__sev--critical {
+  background: color-mix(in srgb, var(--agm-critical) 16%, transparent);
+  border-color: color-mix(in srgb, var(--agm-critical) 42%, transparent);
+  color: var(--agm-critical);
+}
+
+.agm-notif__sev--medium,
+.agm-notif__sev--warning {
+  background: color-mix(in srgb, var(--agm-warning) 16%, transparent);
+  border-color: color-mix(in srgb, var(--agm-warning) 42%, transparent);
+  color: var(--agm-warning);
+}
+
+.agm-notif__sev--low,
+.agm-notif__sev--healthy,
+.agm-notif__sev--info,
+.agm-notif__sev--success {
+  background: color-mix(in srgb, var(--agm-healthy) 14%, transparent);
+  border-color: color-mix(in srgb, var(--agm-healthy) 35%, transparent);
+  color: var(--agm-healthy);
+}
+
+.agm-notif__empty {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 42px 20px;
+  color: var(--agm-ink-soft);
+  font-size: 0.875rem;
+}
+
+.agm-notif__empty strong {
+  color: var(--agm-ink);
+  font-size: 0.9375rem;
+}
+
+.agm-notif__empty-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 4px;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--agm-healthy) 14%, transparent);
+  color: var(--agm-healthy);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.agm-notif__footer {
+  padding: 10px 20px;
+  border-top: 1px solid var(--agm-border);
+  color: var(--agm-ink-soft);
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .agm-notif-dialog {
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  .agm-notif__item {
+    grid-template-columns: 8px minmax(0, 1fr);
+  }
+
+  .agm-notif__aside {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 64px;
+    width: 100%;
+    margin-top: 3px;
+    text-align: left;
+  }
+
+  .agm-notif__time {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .agm-app {
+    grid-template-columns: 1fr;
+  }
+
+  .agm-sidebar {
+    position: relative;
+    height: auto;
+  }
+
+  .agm-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Modal Dialog — full-viewport dim overlay
+   Syncfusion's .e-dlg-overlay is position:fixed by default, but its
+   background and z-index can be overridden by ancestor stacking
+   contexts. Force a true full-screen dim so the page beneath the
+   notifications dialog (and any future modal) is dimmed edge-to-edge. */
+.e-dlg-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.55) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 10000 !important;
+}
+
+.e-dlg-modal {
+  z-index: 10001 !important;
+}
+
+.agm-saved-view-dialog {
+  border: 1px solid var(--agm-border-strong, var(--agm-border));
+  border-radius: var(--agm-radius);
+  overflow: hidden;
+  box-shadow: var(--agm-shadow-lg, 0 24px 60px rgba(15, 23, 42, 0.24));
+}
+
+.agm-saved-view-dialog .e-dlg-header-content,
+.agm-saved-view-dialog .e-dlg-content {
+  background: var(--agm-surface-elevated);
+}

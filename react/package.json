@@ -1,0 +1,57 @@
+{
+  "name": "web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+     "start": "node server.cjs"
+
+  },
+  "dependencies": {
+    "@syncfusion/ej2-base": "^34.2.5",
+    "@syncfusion/ej2-data": "^34.2.2",
+    "@syncfusion/ej2-icons": "^34.2.2",
+    "@syncfusion/ej2-react-buttons": "^34.2.2",
+    "@syncfusion/ej2-react-calendars": "^34.2.5",
+    "@syncfusion/ej2-react-charts": "^34.2.5",
+    "@syncfusion/ej2-react-dropdowns": "^34.2.5",
+    "@syncfusion/ej2-react-gantt": "^34.2.5",
+    "@syncfusion/ej2-react-grids": "^34.2.5",
+    "@syncfusion/ej2-react-inputs": "^34.2.2",
+    "@syncfusion/ej2-react-layouts": "^34.2.3",
+    "@syncfusion/ej2-react-lists": "^34.2.2",
+    "@syncfusion/ej2-react-maps": "^34.2.5",
+    "@syncfusion/ej2-react-navigations": "^34.2.5",
+    "@syncfusion/ej2-react-notifications": "^34.2.2",
+    "@syncfusion/ej2-react-pdfviewer": "^34.2.5",
+    "@syncfusion/ej2-react-pivotview": "^34.2.4",
+    "@syncfusion/ej2-react-popups": "^34.2.4",
+    "@syncfusion/ej2-react-progressbar": "^34.2.5",
+    "@syncfusion/ej2-react-schedule": "^34.2.4",
+    "@syncfusion/ej2-react-splitbuttons": "^34.2.2",
+    "@syncfusion/ej2-react-spreadsheet": "^34.2.5",
+    "@syncfusion/ej2-react-treegrid": "^34.2.5",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2"
+  },
+  "devDependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^6.1.0",
+    "oxlint": "^1.79.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.2.108",
+    "pdfmake": "^0.3.11",
+    "playwright-core": "^1.62.1",
+    "typescript": "5.8.3",
+    "vite": "^8.2.2"
+  }
+}

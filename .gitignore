@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+apps/web/dist/
+
+# Build outputs
+# .NET build outputs (matches bin/obj at any depth under backend)
+backend/**/bin/
+backend/**/obj/
+backend/Agm.SupplyChain.Api/wwwroot/*
+!backend/Agm.SupplyChain.Api/wwwroot/.gitkeep
+
+# IDE / OS
+.vscode/
+.idea/
+*.user
+.DS_Store
+
+# Env
+.env
+.env.local
+apps/web/.env.local
+
+# Local SQLite demo persistence
+**/data/*.db
+**/data/*.db-*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Syncfusion license (local only)
+*.lic

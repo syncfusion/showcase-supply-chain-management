@@ -1,0 +1,2 @@
+# Placeholder so local builds can include wwwroot.
+# Docker multi-stage build replaces this with the Vite production output.
