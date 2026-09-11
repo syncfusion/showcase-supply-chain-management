@@ -1,13 +1,14 @@
 # Dependencies
 node_modules/
-apps/web/dist/
+react/dist/
 
 # Build outputs
-# .NET build outputs (matches bin/obj at any depth under backend)
-backend/**/bin/
-backend/**/obj/
-backend/Agm.SupplyChain.Api/wwwroot/*
-!backend/Agm.SupplyChain.Api/wwwroot/.gitkeep
+# .NET build outputs (matches bin/obj at any depth under webapi)
+webapi/**/bin/
+webapi/**/obj/
+
+# React static-server artefacts
+react/server.cjs is committed (production host reads it). Do not ignore it.
 
 # IDE / OS
 .vscode/
@@ -18,7 +19,7 @@ backend/Agm.SupplyChain.Api/wwwroot/*
 # Env
 .env
 .env.local
-apps/web/.env.local
+.env.*.local
 
 # Local SQLite demo persistence
 **/data/*.db
