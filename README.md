@@ -150,7 +150,7 @@ npm run build
 npm start            # node server.cjs, listens on 0.0.0.0:8080 under /supply-chain/react
 ```
 
-This is what production hosts (App Service, container images, etc.) use. The browser-side Syncfusion license can be injected either at build time via `VITE_SYNCFUSION_LICENSE` in `.env.local` or at runtime by editing `wwwroot/config.js` / `react/public/config.js`.
+This is what production hosts (App Service, container images, etc.) use. The browser-side Syncfusion license can be injected either at build time via `VITE_SYNCFUSION_LICENSE` in `.env.local` or at runtime with the `SYNCFUSION_LICENSE` environment variable: the API writes `webapi/wwwroot/config.js` at startup (the file is git-ignored; never commit a key). For `npm run dev`, use `react/public/config.js` or `.env.local`, and keep the key out of commits.
 
 ## Pages
 

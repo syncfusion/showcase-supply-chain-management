@@ -31,3 +31,6 @@ npm-debug.log*
 
 # Syncfusion license (local only)
 *.lic
+
+# Written by the API at startup with the Syncfusion license (Program.cs); never commit it.
+webapi/wwwroot/config.js
